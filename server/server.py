@@ -2,14 +2,13 @@ import sys
 import os
 import asyncio
 from aiohttp import web
-from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives import serialization
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from database import Database
 from auth import generate_key_pair
-from shared.crypto_utils import serialize_public_key, deserialize_public_key
+from shared.crypto_utils import deserialize_public_key
 
 routes = web.RouteTableDef()
 db = Database()
@@ -124,4 +123,7 @@ app = web.Application()
 app.add_routes(routes)
 
 if __name__ == '__main__':
-    web.run_app(app, port=8080, access_log=None)
+    try:
+        web.run_app(app, port=8080, access_log=None)
+    except PermissionError as e:
+        print(f"Выбранный порт занят. {e}")
