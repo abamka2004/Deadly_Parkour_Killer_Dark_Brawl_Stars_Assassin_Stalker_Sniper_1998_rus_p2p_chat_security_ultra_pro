@@ -1,0 +1,17 @@
+# venv
+.venv/
+
+# IDE
+.idea/
+.vscode/
+
+# pycache
+**/__pycache__/
+
+# development files
+**/dev_*
+**/dev_**/
+
+# program operation files
+**/*.db
+**/*.key
