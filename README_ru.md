@@ -2,7 +2,7 @@
 
 ###### (RU)
 
-###### [Readme in English](README_en.md)
+###### [Readme in English](README.md)
 
 ---
 
