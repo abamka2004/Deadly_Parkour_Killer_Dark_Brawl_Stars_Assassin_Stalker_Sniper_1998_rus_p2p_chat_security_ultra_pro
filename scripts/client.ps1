@@ -5,7 +5,10 @@ param(
     [Parameter(Mandatory=$true)]
     [string]$peerName,
 
-    [string]$serverUrl = "http://localhost:8080"
+    [Parameter(Mandatory=$true)]
+    [string]$serverUrl
 )
 
-python client/client.py $yourName $peerId $serverUrl
+# Установка PYTHONPATH и запуск клиента
+$env:PYTHONPATH = (Get-Item -Path ".\").FullName
+python .\client\client.py $yourName $peerName $serverUrl

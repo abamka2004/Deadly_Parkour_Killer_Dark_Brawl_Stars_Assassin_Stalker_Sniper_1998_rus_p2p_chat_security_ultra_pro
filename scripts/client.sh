@@ -6,7 +6,7 @@ fi
 
 YOUR_NAME=$1
 PEER_NAME=$2
-SERVER_URL=${3:-"http://localhost:8080"}
+SERVER_URL=$3
 
 echo "Starting chat client for $YOUR_NAME (talking to $PEER_NAME)..."
 cd client
